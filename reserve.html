@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ご宿泊・料金・予約 | 奥田屋</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="reserve.css">
+</head>
+<body>
+
+    <div class="reserve-page-wrapper">
+        <header class="reserve-header">
+            <h1>ご宿泊・予約</h1>
+            <p>Reservation & Rates</p>
+        </header>
+
+        <div class="reserve-container">
+            
+            <section class="price-list-section">
+                <h2 class="section-title">宿泊料金表</h2>
+                <div class="price-notice">
+                    <p>※表示料金は、消費税および入湯税（150円）を含んだ総額です。</p>
+                    <p><strong>【重要】お支払いは「現金のみ」となります。</strong></p>
+                </div>
+
+                <div class="table-scroll">
+                    <table class="price-table">
+                        <thead>
+                            <tr><th>プラン内容</th><th>平日</th><th>休前日</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>スタンダード（1泊2食付）</td><td>13,350円</td><td>14,450円</td></tr>
+                            <tr><td>特別会席（1泊2食付）</td><td>15,550円</td><td>16,650円</td></tr>
+                            <tr><td>1泊朝食付（ビジネス・一人旅）</td><td>9,500円</td><td>10,500円</td></tr>
+                            <tr><td>自炊湯治（1名様利用）</td><td colspan="2" style="text-align:center;">6,530円 / 泊</td></tr>
+                            <tr><td>自炊湯治（2名様以上）</td><td colspan="2" style="text-align:center;">5,430円 / 泊</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="calculator-section">
+                <h2 class="section-title">料金シミュレーション</h2>
+                <div class="calc-card">
+                    <div class="calc-fields">
+                        <div class="field-item">
+                            <label>ご宿泊プラン</label>
+                            <select id="plan-select" onchange="calculate()">
+                                <optgroup label="【1泊2食付】スタンダード">
+                                    <option value="13350">平日：スタンダード</option>
+                                    <option value="14450">休前日：スタンダード</option>
+                                </optgroup>
+                                <optgroup label="【1泊2食付】特別会席（岩魚骨酒付）">
+                                    <option value="15550">平日：特別会席</option>
+                                    <option value="16650">休前日：特別会席</option>
+                                </optgroup>
+                                <optgroup label="【1泊朝食付】">
+                                    <option value="9500">平日：1泊朝食付</option>
+                                    <option value="10500">休前日：1泊朝食付</option>
+                                </optgroup>
+                                <optgroup label="【素泊まり】自炊湯治">
+                                    <option value="6530">自炊湯治：1名様利用</option>
+                                    <option value="5430">自炊湯治：2名様以上利用</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        
+                        <div class="field-flex">
+                            <div class="field-item">
+                                <label>大人人数</label>
+                                <select id="adult-num" onchange="calculate()">
+                                    <option value="1">1名</option>
+                                    <option value="2" selected>2名</option>
+                                    <option value="3">3名</option>
+                                    <option value="4">4名</option>
+                                </select>
+                            </div>
+                            <div class="field-item">
+                                <label>宿泊日数</label>
+                                <select id="nights-num" onchange="calculate()">
+                                    <option value="1">1泊</option>
+                                    <option value="2">2泊</option>
+                                    <option value="3">3泊</option>
+                                    <option value="4">4泊</option>
+                                    <option value="5">5泊</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-label">概算合計金額（税込）</span>
+                        <div class="total-price">¥ <span id="total-display">26,700</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calendar-section">
+                <h2 class="section-title">空き状況</h2>
+                <div class="calendar-frame">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=harukisuzuki2003%40gmail.com&ctz=Asia%2FTokyo" style="border: 0" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">ご予約相談フォーム</h2>
+                <p class="form-intro">空き状況を確認後、当館より折り返しご連絡いたします。</p>
+                <form class="reserve-form">
+                    <div class="form-grid">
+                        <div class="form-item">
+                            <label>お名前 <span>必須</span></label>
+                            <input type="text" name="name" placeholder="奥田 太郎" required>
+                        </div>
+                        <div class="form-item">
+                            <label>メールアドレス <span>必須</span></label>
+                            <input type="email" name="email" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="form-item">
+                            <label>お電話番号 <span>必須</span></label>
+                            <input type="tel" name="tel" placeholder="000-0000-0000" required>
+                        </div>
+                        <div class="form-item">
+                            <label>宿泊希望日 <span>必須</span></label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-item">
+                            <label>チェックイン予定時刻</label>
+                            <select name="checkin_time">
+                                <option value="">選択してください</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00以降">19:00以降</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-item" style="margin-top: 20px;">
+                        <label>アレルギーのある食材（あれば）</label>
+                        <input type="text" name="allergy" placeholder="例：えび、カニ、そば等">
+                    </div>
+
+                    <div class="form-item" style="margin-top: 20px;">
+                        <label>ご希望・お問い合わせ内容</label>
+                        <textarea name="message" rows="4" placeholder="人数内訳や料理のご希望など。お子様連れの場合は年齢もご記入ください。"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">この内容で相談を送る</button>
+                </form>
+            </section>
+
+            <div class="back-to-top">
+                <a href="demo.html">← トップに戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const plan = parseInt(document.getElementById('plan-select').value);
+            const adults = parseInt(document.getElementById('adult-num').value);
+            const nights = parseInt(document.getElementById('nights-num').value);
+            const total = plan * adults * nights;
+            document.getElementById('total-display').innerText = total.toLocaleString();
+        }
+    </script>
+</body>
+</html>

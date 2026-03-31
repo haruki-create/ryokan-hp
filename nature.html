@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飛騨小坂の自然 | 奥田屋</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="nature.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="nature-hero">
+        <h1 class="fade-in">飛騨小坂の自然</h1>
+    </div>
+
+    <div class="container">
+        <section class="nature-section reveal">
+            <h2 class="section-title">霊峰 御嶽山</h2>
+            <div class="description">
+                <p>北アルプス・穂高連峰から乗鞍岳をはさみ、その最南端に位置する独立峰。富士山、白山とともに「日本三大霊峰」の一つに数えられます。</p>
+            </div>
+            <div class="image-grid-2">
+                <img src="images/ONTAKE1.jpg" alt="御嶽山の山容">
+                <img src="images/ONTAKE2.jpg" alt="二の池の輝き">
+            </div>
+        </section>
+
+        <section class="nature-section reveal">
+            <h2 class="section-title">巌立峡・がんだて公園</h2>
+            <div class="nature-flex">
+                <div class="nature-img"><img src="images/n7.JPG" alt="巌立の大岩壁"></div>
+                <div class="nature-text">
+                    <p>5万4千年前、御嶽山の大噴火によって流れ出した溶岩が冷えて固まり、形成された巨大な岩壁「巌立」。高さ72m、幅120mにも及ぶ柱状節理の造形は、圧倒的な迫力です。</p>
+                </div>
+            </div>
+            <div class="image-grid-2">
+                <img src="images/n8.JPG" alt="がんだて公園の景観">
+                <div class="info-card-small">
+                    <p>がんだて公園は、この巨大な岩壁を間近に望める絶景ポイント。ここから深い森の世界へと誘います。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nature-section reveal">
+            <h2 class="section-title">三ッ滝・滝めぐり</h2>
+            <div class="nature-flex reverse">
+                <div class="nature-img"><img src="images/n5.JPG" alt="三ッ滝"></div>
+                <div class="nature-text">
+                    <p>がんだて公園から整備された遊歩道を歩くこと数分。現れるのは、三段になって流れ落ちる「三ッ滝」です。森のマイナスイオンが心身を癒やしてくれます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nature-section reveal">
+            <h2 class="section-title">散歩・ウォーキング・釣り</h2>
+            <div class="description" style="text-align: center;">
+                <p>奥田屋のすぐそば、大洞川のせせらぎとともに過ごす贅沢。</p>
+            </div>
+            <div class="nature-flex">
+                <div class="nature-text">
+                    <p>近くにお薬師様、大洞川にかかる橋を渡ると支流沿いの遊歩道やサイクリングロードもあります。心身を整えるウォーキングに最適です。</p>
+                    <p>また、大洞川で釣りを楽しまれるのも、湯屋温泉ならではのお勧めです。釣った魚を味わう、そんな豊かな時間をお楽しみください。</p>
+                </div>
+                <div class="nature-img"><img src="images/osaka.jpg" alt="サイクリングロード・釣りの風景"></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-nav reveal">
+        <a href="index.html" class="btn-outline">トップページへ戻る</a>
+    </div>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

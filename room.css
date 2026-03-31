@@ -1,0 +1,146 @@
+/* room.css */
+
+:root {
+    --deep-blue: #2c3e50;
+    --light-bg: #fafafa;
+    --accent-brown: #8b4513;
+}
+
+body {
+    font-family: 'Sawarabi Mincho', serif;
+    background-color: var(--light-bg);
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.8;
+}
+
+/* ヒーローエリア */
+.rooms-hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('images/R1.JPG') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.rooms-hero h1 { 
+    font-size: 2.8rem; 
+    letter-spacing: 0.5em; 
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.rooms-section { margin-bottom: 120px; }
+.section-title { 
+    font-size: 1.8rem; 
+    color: var(--deep-blue); 
+    margin-bottom: 40px; 
+    border-bottom: 1px solid #ddd; 
+    display: inline-block; 
+}
+
+.description { margin-bottom: 40px; }
+
+/* グリッド・モザイク */
+.image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;}
+.image-grid-2 img { width: 100%; height: 400px; object-fit: cover; }
+
+.image-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.image-grid-3 img { width: 100%; height: 280px; object-fit: cover; }
+
+.rooms-main-flex { display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
+.rooms-main-img { flex: 2; }
+.rooms-main-img img { width: 100%; height: auto; }
+.rooms-main-text { flex: 1; }
+
+.image-mosaic { display: flex; gap: 15px; margin-bottom: 15px; height: 500px; }
+.mosaic-left { flex: 2; }
+.mosaic-left img { width: 100%; height: 100%; object-fit: cover; }
+.mosaic-right { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+.mosaic-right img { width: 100%; height: calc(50% - 7px); object-fit: cover; }
+
+/* --- 湯治・アメニティ案内 --- */
+.touji-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.touji-card {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.touji-card h3 {
+    font-size: 1.2rem;
+    color: var(--accent-brown);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--accent-brown);
+    display: inline-block;
+}
+
+.facility-list {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.facility-list li::before {
+    content: "■";
+    color: #d2b48c;
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+.rule-text {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.shopping-info {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px dashed #ccc;
+    padding-top: 20px;
+}
+
+/* --- アニメーション・ボタン --- */
+.fade-in { animation: fadeInTop 2.5s forwards; opacity: 0; }
+@keyframes fadeInTop { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
+
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); 
+}
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.footer-nav { text-align: center; padding-top: 50px; padding-bottom: 100px; }
+.btn-outline { 
+    border: 1px solid var(--deep-blue); 
+    color: var(--deep-blue); 
+    padding: 15px 60px; 
+    text-decoration: none; 
+    transition: 0.3s;
+}
+.btn-outline:hover { background: var(--deep-blue); color: #fff; }
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .image-grid-2, .image-grid-3, .image-mosaic, .rooms-main-flex, .touji-info-grid { display: block; height: auto; }
+    img { width: 100% !important; height: auto !important; margin-bottom: 15px; }
+    .touji-card { margin-bottom: 20px; }
+}

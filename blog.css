@@ -1,0 +1,126 @@
+/* news.css */
+
+:root {
+    --accent-color: #7a4621;
+    --border-color: #eee;
+    --light-bg: #fdfaf7;
+}
+
+body {
+    font-family: 'Sawarabi Mincho', serif;
+    line-height: 2;
+    color: #333;
+    margin: 0;
+    background-color: #fff;
+}
+
+/* ヒーローエリア */
+.news-hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('images/history_hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.news-hero h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.5em;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 重要なお知らせ */
+.important-info {
+    background: var(--light-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 30px;
+    margin-bottom: 80px;
+}
+
+.important-info h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* ニュースリスト */
+.news-item {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    min-width: 100px;
+    font-weight: bold;
+    padding-top: 8px;
+}
+
+.news-content h2 {
+    font-size: 1.4rem;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+.news-img {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.news-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+/* アーカイブ */
+.archive-link {
+    text-align: center;
+    margin-top: 100px;
+    padding: 40px;
+    background: #f9f9f9;
+}
+
+.btn-text {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* フッターナビ */
+.footer-nav { text-align: center; padding-bottom: 100px; }
+.btn-outline {
+    display: inline-block;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 15px 60px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-outline:hover { background: var(--accent-color); color: #fff; }
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .news-item { flex-direction: column; gap: 10px; }
+    .news-hero h1 { font-size: 1.8rem; }
+}
+
+/* アニメーション */
+.fade-in { animation: fadeInAnim 1.5s forwards; opacity: 0; }
+@keyframes fadeInAnim { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
