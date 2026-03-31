@@ -57,9 +57,9 @@
             </div>
         </section>
 
-        <section class="rooms-section reveal">
-            <h2 class="section-title">自炊湯治のご案内</h2>
-            <div class="touji-info-grid">
+        <section class="rooms-section">
+            <h2 class="section-title reveal">自炊湯治のご案内</h2>
+            <div class="touji-info-grid reveal">
                 <div class="touji-card">
                     <h3>共同炊事場 設備</h3>
                     <p>新しく完成した炊事場をご自由にお使いいただけます。</p>
@@ -76,23 +76,25 @@
                     <p class="rule-text">※自炊の方は食堂をご利用いただけます。</p>
                 </div>
             </div>
-            <div class="shopping-info">
+            <div class="shopping-info reveal">
                 <p>【食材の買い出し】 道の駅：約1km ／ スーパー（食料品・雑貨・酒）：約2km</p>
             </div>
         </section>
     </div>
 
     <div class="footer-nav reveal">
-        <a href="demo.html" class="btn-outline">トップページへ戻る</a>
+        <a href="index.html" class="btn-outline">トップページへ戻る</a>
     </div>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
