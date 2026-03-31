@@ -16,12 +16,11 @@ body {
     overflow-x: hidden;
 }
 
-/* ヒーローエリア：背景写真をここで設定 */
+/* ヒーローエリア：H3.jpg を背景に設定 */
 .history-hero {
     height: 70vh;
-    /* 大文字のJPGに合わせました */
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('images/H3.JPG') center/cover no-repeat fixed;
+                url('images/H3.jpg') center/cover no-repeat fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +29,7 @@ body {
     width: 100%;
 }
 
-.history-hero H1 {
+.history-hero h1 {
     font-size: 3.5rem;
     letter-spacing: 0.6em;
     text-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -43,7 +42,7 @@ body {
     padding: 100px 20px;
 }
 
-/* 縦書き演出 */
+/* 縦書きタイトル */
 .vertical-title {
     writing-mode: vertical-rl;
     height: 300px;
@@ -57,10 +56,6 @@ body {
     display: flex;
     margin-bottom: 150px;
     align-items: flex-start;
-}
-
-.history-section-block {
-    margin-bottom: 150px;
 }
 
 .dream-message {
@@ -91,17 +86,37 @@ body {
     margin-bottom: 30px;
 }
 
-.history-flex { display: flex; gap: 60px; align-items: center; margin-bottom: 40px; }
-.history-img-side { flex: 1.2; }
-.history-img-side img { width: 100%; box-shadow: 10px 10px 0 var(--earth); }
-.history-text { flex: 1; }
+.history-flex { 
+    display: flex; 
+    gap: 60px; 
+    align-items: center; 
+    margin-bottom: 40px; 
+}
+
+.history-img-side { 
+    flex: 1.2; 
+}
+
+.history-img-side img { 
+    width: 100%; 
+    box-shadow: 10px 10px 0 var(--earth); 
+}
+
+.history-text { 
+    flex: 1; 
+}
 
 .image-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
-.image-grid-2 img { width: 100%; height: 350px; object-fit: cover; }
+
+.image-grid-2 img { 
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+}
 
 .info-card-small {
     background: #fff;
@@ -123,7 +138,11 @@ body {
     border-radius: 2px;
 }
 
-.footer-nav { text-align: center; padding: 100px 0; }
+.footer-nav { 
+    text-align: center; 
+    padding: 100px 0; 
+}
+
 .btn-outline {
     display: inline-block;
     border: 1px solid var(--deep-green);
@@ -133,21 +152,35 @@ body {
     letter-spacing: 0.2em;
     transition: 0.3s;
 }
+
 .btn-outline:hover {
     background: var(--deep-green);
     color: #fff;
 }
 
-/* アニメーション */
-.fade-in { animation: fadeInHistory 2.5s forwards; opacity: 0; }
+/* アニメーション設定 */
+.fade-in { 
+    animation: fadeInHistory 2.5s forwards; 
+    opacity: 0; 
+}
+
 @keyframes fadeInHistory {
     from { opacity: 0; filter: blur(10px); letter-spacing: 0.2em; }
     to { opacity: 1; filter: blur(0); letter-spacing: 0.6em; }
 }
 
-.reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
-.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); 
+}
 
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* レスポンシブ設定 */
 @media (max-width: 768px) {
     .history-section { flex-direction: column; }
     .vertical-title { writing-mode: horizontal-tb; height: auto; margin: 0 0 30px 0; }
