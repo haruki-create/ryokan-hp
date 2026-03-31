@@ -1,77 +1,90 @@
-/* onsen.css - 温泉詳細ページ専用スタイル */
+/* onsen.css */
 
 :root {
-    --accent: #8b4513; 
-    --bg-soft: #fdfaf5;
-    --text-main: #333;
+    --deep-green: #2d5a27;
+    --earth: #8b4513;
+    --light-bg: #fdfaf5; 
+    --text: #333;
 }
 
 body {
     font-family: 'Sawarabi Mincho', serif;
-    line-height: 1.9;
-    color: var(--text-main);
+    line-height: 2;
+    color: var(--text);
     margin: 0;
-    background-color: #fff;
+    background-color: var(--light-bg);
     overflow-x: hidden;
 }
 
-/* --- アニメーション設定 --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+/* ★ここに背景画像を指定しています */
+.detail-hero {
+    height: 70vh; /* 画面の高さの70%にする */
+    /* 背景画像の設定：images/on1.jpg を指定。文字を見やすくするために少し暗くしています */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('images/on1.jpg') center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0 !important; /* ヘッダー直後の余計な余白を防ぐ */
 }
 
+/* ふわっと出てくるアニメーション */
 .fade-in {
     animation: fadeInOnsen 2.5s forwards;
     opacity: 0;
 }
+
 @keyframes fadeInOnsen {
-    from { opacity: 0; filter: blur(10px); }
-    to { opacity: 1; filter: blur(0); }
+    from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* --- レイアウト設定 --- */
-.detail-hero {
-    height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/on1.JPG') center/cover no-repeat fixed;
-    display: flex; align-items: center; justify-content: center; color: #fff; text-align: center;
+/* ここから下はコンテナとセクション余白の重複解消ルール */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+/* セクション同士の間隔を100pxに固定 */
+.container > * {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+}
 
-.section-title { font-size: 1.8rem; color: var(--accent); text-align: center; margin: 80px 0 40px; position: relative; }
-.section-title::after { content: ""; display: block; width: 40px; height: 2px; background: var(--accent); margin: 15px auto 0; }
+/* 最初の要素の上と、最後の要素の下の余白をリセット */
+.container > *:first-child { margin-top: 80px !important; }
+.container > *:last-child { margin-bottom: 0 !important; }
 
-.image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0; }
-.image-grid-2 img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; }
-
-.info-card { background: var(--bg-soft); border: 1px solid #d2b48c; padding: 30px; margin: 40px 0; }
-
-.bath-section { display: flex; gap: 60px; margin-bottom: 100px; align-items: center; }
+/* その他、onsen.htmlに必要な基本スタイル（省略なし） */
+.section-title { font-size: 2rem; color: var(--earth); text-align: center; }
+.image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.image-grid-2 img { width: 100%; height: 300px; object-fit: cover; }
+.info-card { background: #fff; padding: 40px; border-left: 5px solid var(--earth); }
+.bath-section { display: flex; align-items: center; gap: 50px; }
 .bath-section.reverse { flex-direction: row-reverse; }
-.bath-img { flex: 1.2; }
-.bath-img img { width: 100%; height: auto; box-shadow: 20px 20px 0 var(--bg-soft); }
-.bath-text { flex: 1; }
-.bath-text h3 { color: var(--accent); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.bath-img img { width: 100%; height: 400px; object-fit: cover; }
+.full-img { width: 100%; height: 500px; object-fit: cover; }
+.spec-table { width: 100%; border-collapse: collapse; }
+.spec-table th, .spec-table td { padding: 20px; border: 1px solid #ddd; }
+.spec-table th { background: #f4f1ee; width: 30%; }
 
-.full-img { width: 100%; height: auto; margin: 40px 0; border-radius: 4px; display: block; }
+/* アニメーション */
+.reveal { opacity: 0; transform: translateY(50px); transition: all 1.5s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.spec-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
-.spec-table th, .spec-table td { border: 1px solid #d2b48c; padding: 15px; }
-.spec-table th { background: #f5ede3; width: 25%; font-weight: bold; }
+/* フッターナビ */
+.footer-nav { text-align: center; padding: 100px 0; }
+.btn-outline { display: inline-block; border: 1px solid var(--earth); color: var(--earth); padding: 15px 60px; text-decoration: none; }
+.btn-outline:hover { background: var(--earth); color: #fff; }
 
-.footer-nav { background: var(--bg-soft); padding: 100px 0; text-align: center; }
-.btn-outline { display: inline-block; border: 1px solid var(--accent); color: var(--accent); padding: 15px 60px; text-decoration: none; transition: 0.3s; font-weight: bold; }
-.btn-outline:hover { background: var(--accent); color: #fff; }
-
+/* スマホ対応 */
 @media (max-width: 768px) {
-    .bath-section, .bath-section.reverse { flex-direction: column; }
+    .bath-section, .bath-section.reverse { flex-direction: column; gap: 30px; }
     .image-grid-2 { grid-template-columns: 1fr; }
-    .image-grid-2 img { height: 250px; }
-    .detail-hero h1 { font-size: 1.8rem; }
+    .full-img { height: 300px; }
 }
