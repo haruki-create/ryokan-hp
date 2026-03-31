@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お知らせ・ブログ | 奥田屋</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="news.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="news-hero">
+        <h1 class="fade-in">お知らせ</h1>
+    </div>
+
+    <div class="container">
+        
+        <div class="important-info reveal">
+            <h3>【公式予約について】</h3>
+            <p>ホームページからの公式予約は2名様以上から承っております。<br>
+               1名様でのご利用（湯治・送迎希望など）は、お電話にて直接お問い合わせください。<br>
+               <strong>電話：0576-62-3006</strong></p>
+        </div>
+
+        <section class="news-list">
+            
+            <article class="news-item reveal">
+                <div class="news-date">2024.04.04</div>
+                <div class="news-content">
+                    <h2>ホームページの公式予約について</h2>
+                    <p>1名様でのご宿泊は湯治や送迎のご相談が多いため、お電話での打ち合わせをお願いしております。お気軽にお電話ください。</p>
+                </div>
+            </article>
+
+            <article class="news-item reveal">
+                <div class="news-date">2020.05.25</div>
+                <div class="news-content">
+                    <h2>営業再開のお知らせ</h2>
+                    <p>緊急事態宣言に伴う休業を経て、5月16日より営業を再開いたしました。感染症対策を整え、皆様のお越しをお待ちしております。</p>
+                </div>
+            </article>
+
+            <article class="news-item reveal">
+                <div class="news-date">季節の便り</div>
+                <div class="news-content">
+                    <h2>新そばの季節</h2>
+                    <p>自家栽培のそばが収穫できました。挽きたて、打ちたて、茹でたての「三たて」に、採れたての「四たて」でご提供しております。</p>
+                    <div class="news-img">
+                        <img src="images/soba.jpg" alt="新そば">
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-item reveal">
+                <div class="news-date">催事</div>
+                <div class="news-content">
+                    <h2>飛騨小坂 炭酸泉まつり</h2>
+                    <p>浸かってよし、飲んでよし、食べてよしの炭酸泉。女将たちが立ち上げた「シュワシュワ会」を中心に、湯めぐりイベントを開催しています。</p>
+                </div>
+            </article>
+
+        </section>
+
+        <div class="archive-link reveal">
+            <p>これまでの歩みや詳細な過去記事は、旧ブログ（外部サイト）でもご覧いただけます。</p>
+            <a href="https://okudaya.jp/blog/okudaya.htm" target="_blank" class="btn-text">旧ブログを見る ≫</a>
+        </div>
+
+    </div>
+
+    <div class="footer-nav reveal">
+        <a href="demo.html" class="btn-outline">トップページへ戻る</a>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

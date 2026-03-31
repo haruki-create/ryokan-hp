@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お知らせ・ブログ｜奥田屋</title>
+  <link rel="stylesheet" href="demo.css">
+  <style>
+    /* ブログ専用の微調整スタイル */
+    .news-hero { background: #f9f7f5; padding: 120px 0; text-align: center; }
+    .news-hero h1 { font-size: 2.2rem; letter-spacing: 0.2em; font-weight: 400; color: #333; margin: 0; }
+    .news-hero p { margin-top: 15px; color: #8b4513; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    
+    .news-container { max-width: 900px; margin: 80px auto; padding: 0 25px; }
+    .news-item { margin-bottom: 120px; opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards; }
+    
+    .news-meta { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-family: serif; }
+    .news-date { color: #8b4513; font-weight: bold; font-size: 1.1rem; }
+    .news-category { background: #8b4513; color: #fff; padding: 2px 12px; font-size: 0.7rem; letter-spacing: 0.1em; }
+    
+    .news-title { font-size: 1.9rem; margin-bottom: 30px; line-height: 1.5; font-weight: 400; color: #222; }
+    .news-eyecatch { margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
+    .news-eyecatch img { width: 100%; height: auto; display: block; }
+    
+    .news-body { line-height: 2.3; color: #444; font-size: 1.1rem; letter-spacing: 0.05em; }
+    .news-body img { max-width: 100%; height: auto; margin: 30px 0; display: block; }
+    .news-body h2 { font-size: 1.6rem; margin: 50px 0 25px; border-left: 5px solid #8b4513; padding-left: 20px; color: #333; }
+    
+    .divider { width: 40px; height: 1px; background: #d2b48c; margin: 0 auto 100px; }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .news-hero { padding: 80px 0; }
+      .news-hero h1 { font-size: 1.6rem; }
+      .news-title { font-size: 1.4rem; }
+      .news-body { font-size: 1rem; line-height: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="news-hero">
+    <h1>お知らせ</h1>
+    <p>Daily Life & News</p>
+  </div>
+
+  <div class="news-container" id="news-list">
+    <p id="loading" style="text-align:center; padding:50px; color: #999;">記事を読み込んでいます...</p>
+  </div>
+
+  <div style="text-align: center; margin-bottom: 100px;">
+    <a href="demo.html" class="btn-more" style="border-bottom: 1px solid #d2b48c; text-decoration: none; color: #8b4513;">トップに戻る</a>
+  </div>
+
+  <script>
+    const serviceId = 'harukisuzuki'; 
+    const endpoint = 'blogs'; 
+    const apiKey = 'IDQzemamCPD5LBX71CX7wcmdXTh57JQ7bQMJ';
+
+    async function fetchNews() {
+      try {
+        const res = await fetch(`https://${serviceId}.microcms.io/api/v1/${endpoint}`, {
+          headers: { 'X-MICROCMS-API-KEY': apiKey }
+        });
+        
+        const data = await res.json();
+        const container = document.getElementById('news-list');
+        document.getElementById('loading').remove();
+
+        if (data.contents.length === 0) {
+          container.innerHTML = '<p style="text-align:center;">現在、記事はありません。</p>';
+          return;
+        }
+
+        data.contents.forEach(post => {
+          const dateObj = new Date(post.publishedAt);
+          const dateStr = `${dateObj.getFullYear()}.${(dateObj.getMonth()+1).toString().padStart(2,'0')}.${dateObj.getDate().toString().padStart(2,'0')}`;
+          
+          const html = `
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-date">${dateStr}</span>
+                ${post.category ? `<span class="news-category">${post.category.name}</span>` : ''}
+              </div>
+              <h2 class="news-title">${post.title}</h2>
+              ${post.eyecatch ? `<div class="news-eyecatch"><img src="${post.eyecatch.url}" alt=""></div>` : ''}
+              <div class="news-body">${post.content}</div>
+            </article>
+            <div class="divider"></div>
+          `;
+          container.innerHTML += html;
+        });
+      } catch (error) {
+        document.getElementById('loading').innerText = '記事を取得できませんでした。';
+        console.error('Error:', error);
+      }
+    }
+    fetchNews();
+  </script>
+
+</body>
+</html>

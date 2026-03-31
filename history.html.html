@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奥田屋の歴史 | 飛騨小坂 天然炭酸泉の宿</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="history-hero">
+        <h1 class="fade-in">奥田屋の歩み</h1>
+    </div>
+
+    <div class="container">
+        <section class="history-section">
+            <div class="vertical-title reveal">
+                <h2>四百五十年の伝説</h2>
+            </div>
+            <div class="history-content">
+                <p class="history-story reveal">
+                    今から四百五十年もの昔、岐阜に住む一人の武士がおりました。<br>
+                    その名は、<strong>奥田孫左衛門</strong>。
+                </p>
+                <p class="reveal">
+                    孫左衛門は長い間、胃腸の病に苦しみ、お城勤めもままならない日々を過ごしていました。そんなある夜、彼が日頃から信心していた「薬師如来」から夢のお告げを受けました。
+                </p>
+                
+                <div class="dream-message reveal">
+                    <blockquote>
+                        「東の方、山深い里に桃の林があり、その傍らに泉が湧いている。それを飲み、体を浸しなさい。やがて病の苦しみは消えましょう……」
+                    </blockquote>
+                </div>
+
+                <div class="history-img-main reveal">
+                    <img src="images/h1.JPG" alt="温泉湯元開源由来記">
+                    <p class="img-caption">代々伝わる家宝「温泉湯元開源由来記」</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section reveal" style="display: block;">
+            <h2 class="section-title">薬師如来様と主のウッドクラフト</h2>
+            <div class="history-flex">
+                <div class="history-text">
+                    <p>
+                        温泉発見の由来となった「薬師如来様」は、現在も湯屋温泉飲泉場に安置され、静かに時を見守っています。
+                        また、館内には「観音菩薩様」をはじめ、主自らが魂を込めて制作したウッドクラフトの数々が飾られ、木の温もりが訪れる人々を優しく包み込みます。
+                    </p>
+                </div>
+                <div class="history-img-side"><img src="images/H5.jpg" alt="館内の装飾"></div>
+            </div>
+        </section>
+
+        <section class="history-section reveal" style="display: block;">
+            <div class="info-card-net">
+                <h2 class="section-title" style="color: #fff; margin-bottom: 20px;">静寂とネット環境</h2>
+                <p>
+                    ウッドクラフトが並ぶ個室食事処には、有線LANケーブルをご用意しております。<br>
+                    歴史ある建物の静寂の中で、ご自由にお使いいただけます。
+                </p>
+            </div>
+        </section>
+
+        <section class="history-section reveal" style="display: block; text-align: center;">
+            <h2 class="section-title">一千年の時を刻む</h2>
+            <p style="max-width: 700px; margin: 0 auto 50px;">
+                開源以来、大切に守られてきたこの湯。奥田屋の看板に刻まれた歴史は、今も静かに時を刻み続けています。
+            </p>
+            <div class="image-grid-2">
+                <img src="images/h4.JPG" alt="受け継がれる看板">
+                <div class="info-card-small">
+                    <p>四百五十年前の武士が救われたように、<br>現代を生きる皆様の心と体も、<br>このお湯が優しく解きほぐします。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-nav reveal">
+        <a href="demo.html" class="btn-outline">トップページへ戻る</a>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
