@@ -283,8 +283,8 @@ body {
 /* ==========================================
    5. 余白 & アニメーション設定
    ========================================== */
-main { margin-top: 150px; }
-section { padding: 200px 0; }
+main { margin-top: 100px; }
+section { padding: 100px 0; }
 
 .reveal {
     opacity: 0;
@@ -416,8 +416,8 @@ footer {
    8. レスポンシブ
    ========================================== */
 @media (max-width: 768px) {
-    main { margin-top: 80px; }
-    section { padding: 100px 0; }
+    main { margin-top: 60px; }
+    section { padding: 60px 0; }
     .site-header { height: 70px; padding: 0 20px; }
     .header-tel { display: none; }
     .section-container, .section-container.reverse {
