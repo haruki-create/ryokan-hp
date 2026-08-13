@@ -1,19 +1,30 @@
-/* 1. 基本設定 */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ==========================================
+   1. 基本設定
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-    color: #333;
+    color: #6b2d39; /* あずき色の文字色 */
     line-height: 1.8;
-    background: #fff;
+    background: #faf8f5; /* 落ち着いた和風生成り背景 */
     overflow-x: hidden;
 }
 
-/* 2. ヘッダー */
+/* ==========================================
+   2. ヘッダー
+   ========================================== */
 .site-header {
     position: fixed;
-    top: 0; left: 0; width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 80px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(26, 18, 20, 0.55); /* あずき色に合わせたダークヘッダー */
     backdrop-filter: blur(8px);
     z-index: 1000;
     display: flex;
@@ -21,23 +32,74 @@ body {
     padding: 0 40px;
     color: #fff;
 }
+
 .header-inner {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.menu-trigger { cursor: pointer; display: flex; align-items: center; gap: 12px; }
-.menu-icon { width: 25px; height: 1px; background: #fff; position: relative; }
-.menu-icon::before, .menu-icon::after { content: ""; position: absolute; width: 100%; height: 1px; background: #fff; }
+
+.menu-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-icon {
+    width: 25px;
+    height: 1px;
+    background: #fff;
+    position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
+
 .menu-icon::before { top: -8px; }
 .menu-icon::after { bottom: 8px; }
-.menu-label { font-size: 0.75rem; letter-spacing: 0.2em; }
-.header-contact { display: flex; align-items: center; gap: 30px; }
-.header-tel { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.1em; }
-.header-btn { background: #8b4513; color: #fff !important; padding: 10px 25px; font-size: 0.85rem; letter-spacing: 0.1em; text-decoration: none; }
 
-/* 3. ヒーロー・スライダー */
+.menu-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-tel {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.header-btn {
+    background: #6b2d39; /* あずき色ボタン */
+    color: #fff !important;
+    padding: 10px 25px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.header-btn:hover {
+    background: #803342;
+}
+
+/* ==========================================
+   3. ヒーロー・スライダー
+   ========================================== */
 .hero {
     position: relative;
     height: 100vh;
@@ -48,14 +110,28 @@ body {
     color: #fff;
     overflow: hidden;
 }
-.hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
 .slide {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
     opacity: 0;
     animation: fadeSlider 25s infinite;
 }
+
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 5s; }
 .slide:nth-child(3) { animation-delay: 10s; }
@@ -70,38 +146,143 @@ body {
     100% { opacity: 0; }
 }
 
-.hero-inner { position: relative; z-index: 2; padding: 0 20px; }
-.hero-logo img { width: 160px; margin-bottom: 25px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
-.main-copy { 
-    font-size: 2.2rem; letter-spacing: 0.3em; margin-bottom: 20px; font-weight: 400; 
-    text-shadow: 0 0 20px rgba(0,0,0,0.8), 2px 2px 10px rgba(0,0,0,0.9), -1px -1px 0 rgba(255,255,255,0.1);
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
 }
-.sub-copy { font-size: 1.1rem; letter-spacing: 0.2em; line-height: 2.2; text-shadow: 0 0 15px rgba(0,0,0,0.8); }
 
-/* 4. メニューオーバーレイ */
+.hero-logo img {
+    width: 160px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.main-copy {
+    font-size: 2.2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 20px;
+    font-weight: 400;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 2px 2px 10px rgba(0, 0, 0, 0.9), -1px -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sub-copy {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    line-height: 2.2;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================
+   4. メニューオーバーレイ
+   ========================================== */
 .menu-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #1a1512; z-index: 2000;
-    opacity: 0; visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1f1416; /* 濃いあずきブラック */
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
     transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
 }
-.menu-overlay.is-open { opacity: 1; visibility: visible; }
-.menu-close-trigger { position: absolute; top: 40px; left: 40px; cursor: pointer; display: flex; align-items: center; gap: 12px; z-index: 2100; }
-.close-icon { width: 25px; height: 25px; position: relative; }
-.close-icon::before, .close-icon::after { content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: #fff; }
+
+.menu-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-close-trigger {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2100;
+}
+
+.close-icon {
+    width: 25px;
+    height: 25px;
+    position: relative;
+}
+
+.close-icon::before,
+.close-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
+
 .close-icon::before { transform: rotate(45deg); }
 .close-icon::after { transform: rotate(-45deg); }
-.close-label { color: #fff; font-size: 0.75rem; letter-spacing: 0.2em; }
-.menu-flex-container { display: flex; height: 100%; align-items: center; padding: 0 10%; max-width: 1400px; margin: 0 auto; }
-.menu-left { flex: 1.2; }
-.menu-left a { color: #fff; font-size: 2.2rem; display: block; margin-bottom: 25px; text-decoration: none; letter-spacing: 0.1em; transition: 0.3s; }
-.menu-left a:hover { color: #d2b48c; padding-left: 10px; }
-.menu-right { flex: 0.8; color: #fff; text-align: left; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 60px; }
-.menu-sub-links a { color: rgba(255,255,255,0.6); display: block; margin-bottom: 15px; text-decoration: none; font-size: 0.85rem; }
-.tel { font-size: 2rem; color: #fff; text-decoration: none; font-weight: bold; }
 
-/* 5. 余白 & アニメーション設定 */
+.close-label {
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+}
+
+.menu-flex-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menu-left { flex: 1.2; }
+
+.menu-left a {
+    color: #fff;
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 25px;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+.menu-left a:hover {
+    color: #d8a0a8; /* マウスホバーで薄あずき色 */
+    padding-left: 10px;
+}
+
+.menu-right {
+    flex: 0.8;
+    color: #fff;
+    text-align: left;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 60px;
+}
+
+.menu-sub-links a {
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.tel {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================
+   5. 余白 & アニメーション設定
+   ========================================== */
 main { margin-top: 150px; }
 section { padding: 200px 0; }
 
@@ -111,37 +292,138 @@ section { padding: 200px 0; }
     transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* 6. レイアウト設定 */
-.section-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 80px; padding: 0 40px; }
+/* ==========================================
+   6. レイアウト設定
+   ========================================== */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 0 40px;
+}
+
 .section-container.reverse { flex-direction: row-reverse; }
-.text-content { flex: 1; }
+
+.text-content {
+    flex: 1;
+    color: #6b2d39; /* 本文テキストもあずき色 */
+}
+
 .image-box { flex: 1.2; }
-.image-box img { width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-.section-title { font-size: 1.8rem; margin-bottom: 30px; color: #8b4513; border-bottom: 1px solid #d2b48c; display: inline-block; padding-bottom: 10px; }
-.btn-more { display: inline-block; margin-top: 30px; padding: 10px 40px; border: 1px solid #8b4513; color: #8b4513; text-decoration: none; transition: 0.3s; }
-.btn-more:hover { background: #8b4513; color: #fff; }
 
-/* 7. お知らせ & フッター */
-.home-news-section { background: #f9f7f5; }
-.news-banner { display: flex; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.news-banner-text { padding: 60px; flex: 1; }
-.news-banner-img { flex: 1; overflow: hidden; }
-.news-banner-img img { width: 100%; height: 100%; object-fit: cover; }
-.btn-primary { display: inline-block; background: #8b4513; color: #fff; padding: 12px 30px; text-decoration: none; }
-footer { background: #1a1512; color: #fff; padding: 80px 0; text-align: center; }
-.btn-reserve { display: inline-block; background: #8b4513; color: #fff; padding: 20px 60px; margin-top: 40px; text-decoration: none; }
+.image-box img {
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(107, 45, 57, 0.12); /* あずき色の柔らかい影 */
+}
 
-/* 8. レスポンシブ */
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #6b2d39;
+    border-bottom: 1px solid #c49a9f; /* 柔らかなあずき色のアンダーライン */
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.btn-more {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 40px;
+    border: 1px solid #6b2d39;
+    color: #6b2d39;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-more:hover {
+    background: #6b2d39;
+    color: #fff;
+}
+
+/* ==========================================
+   7. お知らせ & フッター
+   ========================================== */
+.home-news-section {
+    background: #f1ece8; /* 全体背景と馴染む柔らかなトーン */
+}
+
+.news-banner {
+    display: flex;
+    background: #faf8f5;
+    box-shadow: 0 10px 30px rgba(107, 45, 57, 0.08);
+}
+
+.news-banner-text {
+    padding: 60px;
+    flex: 1;
+    color: #6b2d39;
+}
+
+.news-banner-img {
+    flex: 1;
+    overflow: hidden;
+}
+
+.news-banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #6b2d39;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #803342;
+}
+
+footer {
+    background: #2b181c; /* 深みのあるダークあずき色 */
+    color: #f3e8ea;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.btn-reserve {
+    display: inline-block;
+    background: #6b2d39;
+    color: #fff;
+    padding: 20px 60px;
+    margin-top: 40px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-reserve:hover {
+    background: #803342;
+}
+
+/* ==========================================
+   8. レスポンシブ
+   ========================================== */
 @media (max-width: 768px) {
     main { margin-top: 80px; }
     section { padding: 100px 0; }
     .site-header { height: 70px; padding: 0 20px; }
     .header-tel { display: none; }
-    .section-container, .section-container.reverse { flex-direction: column; text-align: center; gap: 40px; }
+    .section-container, .section-container.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
     .main-copy { font-size: 1.5rem; }
 }
