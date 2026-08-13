@@ -304,16 +304,13 @@ main {
     padding: 40px 0; /* 狭くしたい数値（お好みで30px〜50pxに調整） */
 }
 
-/* 【追加】ブログやお知らせセクションの余白は広く保持 */
-.home-news-section,
-.blog-section {
-    padding: 100px 0; /* 広く保ちたい数値 */
-}
-
-/* 【追加】アクセスセクションの余白は広く保持 */
-#access,
-.access-section {
-    padding: 100px 0; /* 広く保ちたい数値 */
+/* 【追加】ブログやお知らせ・アクセスセクションの余白は広く（100px）保持 */
+section.home-news-section,
+section.blog-section,
+section.access-section,
+section#access,
+#access {
+    padding: 100px 0 !important; /* 確実に100pxを優先適用 */
 }
 
 /* 内部要素の末尾余白によるズレを防ぐ構造化 */
@@ -377,7 +374,6 @@ main {
     background: #6b2d39;
     color: #fff;
 }
-
 /* ==========================================
    6. アニメーション（スクロール復帰対応）
    ========================================== */
