@@ -284,7 +284,7 @@ body {
    5. 余白 & アニメーション設定
    ========================================== */
 main { margin-top: 100px; }
-section { padding: 60px 0; }
+section { padding: 20px 0; }
 
 .reveal {
     opacity: 0;
