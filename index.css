@@ -9,7 +9,7 @@
 
 body {
     font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-    color: #6b2d39; /* あずき色の文字色 */
+    color: #6b2d39; /* あずき色 */
     line-height: 1.8;
     background: #faf8f5; /* 落ち着いた和風生成り背景 */
     overflow-x: hidden;
@@ -24,7 +24,7 @@ body {
     left: 0;
     width: 100%;
     height: 80px;
-    background: rgba(26, 18, 20, 0.55); /* あずき色に合わせたダークヘッダー */
+    background: rgba(26, 18, 20, 0.55);
     backdrop-filter: blur(8px);
     z-index: 1000;
     display: flex;
@@ -84,7 +84,7 @@ body {
 }
 
 .header-btn {
-    background: #6b2d39; /* あずき色ボタン */
+    background: #6b2d39;
     color: #fff !important;
     padding: 10px 25px;
     font-size: 0.85rem;
@@ -182,7 +182,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1f1416; /* 濃いあずきブラック */
+    background: #1f1416;
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
@@ -242,6 +242,10 @@ body {
 
 .menu-left { flex: 1.2; }
 
+.menu-left ul {
+    list-style: none;
+}
+
 .menu-left a {
     color: #fff;
     font-size: 2.2rem;
@@ -253,7 +257,7 @@ body {
 }
 
 .menu-left a:hover {
-    color: #d8a0a8; /* マウスホバーで薄あずき色 */
+    color: #d8a0a8;
     padding-left: 10px;
 }
 
@@ -273,6 +277,14 @@ body {
     font-size: 0.85rem;
 }
 
+.menu-footer-info .label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+}
+
 .tel {
     font-size: 2rem;
     color: #fff;
@@ -281,26 +293,18 @@ body {
 }
 
 /* ==========================================
-   5. 余白 & アニメーション設定
+   5. 余白設定（余白の重複とズレを解消）
    ========================================== */
-main { margin-top: 100px; }
-section { padding: 20px 0; }
-
-.reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+main {
+    margin-top: 0; /* ヒーロー直下の無駄な余白を消去 */
 }
 
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+/* 各セクションの上下余白を50pxに最適化 */
+.alternating-section {
+    padding: 50px 0;
 }
 
-/* ==========================================
-   6. レイアウト設定
-   ========================================== */
+/* 内部要素の末尾余白によるズレを防ぐ構造化 */
 .section-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -310,27 +314,41 @@ section { padding: 20px 0; }
     padding: 0 40px;
 }
 
-.section-container.reverse { flex-direction: row-reverse; }
+.section-container.reverse {
+    flex-direction: row-reverse;
+}
 
 .text-content {
     flex: 1;
-    color: #6b2d39; /* 本文テキストもあずき色 */
+    color: #6b2d39;
 }
 
-.image-box { flex: 1.2; }
+/* テキスト内部の末尾マージン消去処理 */
+.text-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.image-box {
+    flex: 1.2;
+}
 
 .image-box img {
     width: 100%;
-    box-shadow: 0 15px 40px rgba(107, 45, 57, 0.12); /* あずき色の柔らかい影 */
+    box-shadow: 0 15px 40px rgba(107, 45, 57, 0.12);
+    display: block;
 }
 
 .section-title {
     font-size: 1.8rem;
     margin-bottom: 30px;
     color: #6b2d39;
-    border-bottom: 1px solid #c49a9f; /* 柔らかなあずき色のアンダーライン */
+    border-bottom: 1px solid #c49a9f;
     display: inline-block;
     padding-bottom: 10px;
+}
+
+.text-content p {
+    margin-bottom: 0;
 }
 
 .btn-more {
@@ -349,10 +367,26 @@ section { padding: 20px 0; }
 }
 
 /* ==========================================
+   6. アニメーション（スクロール復帰対応）
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
    7. お知らせ & フッター
    ========================================== */
 .home-news-section {
-    background: #f1ece8; /* 全体背景と馴染む柔らかなトーン */
+    background: #f1ece8;
+    padding: 80px 0;
 }
 
 .news-banner {
@@ -376,6 +410,7 @@ section { padding: 20px 0; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .btn-primary {
@@ -392,7 +427,7 @@ section { padding: 20px 0; }
 }
 
 footer {
-    background: #2b181c; /* 深みのあるダークあずき色 */
+    background: #2b181c;
     color: #f3e8ea;
     padding: 80px 0;
     text-align: center;
@@ -416,14 +451,14 @@ footer {
    8. レスポンシブ
    ========================================== */
 @media (max-width: 768px) {
-    main { margin-top: 60px; }
-    section { padding: 60px 0; }
+    main { margin-top: 0; }
+    .alternating-section { padding: 40px 0; }
     .site-header { height: 70px; padding: 0 20px; }
     .header-tel { display: none; }
     .section-container, .section-container.reverse {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
+        gap: 30px;
     }
     .main-copy { font-size: 1.5rem; }
 }
