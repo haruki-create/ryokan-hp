@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,20 +7,19 @@
     <link rel="stylesheet" href="index.css">
 
     <!-- Google Analytics4 (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ここに測定IDを入れる"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5800Y1VJR6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-5800Y1VJR6');
-  </script>
-  <!-- /Google Analytics4 -->
-
-  <link rel="stylesheet" href="index.css">
+      gtag('config', 'G-5800Y1VJR6');
+    </script>
+    <!-- /Google Analytics4 -->
 </head>
 <body>
 
+    <!-- フルスクリーンメニュー -->
     <div id="full-menu" class="menu-overlay">
         <div class="menu-close-trigger" onclick="closeMenu()">
             <div class="close-icon"></div>
@@ -36,23 +34,24 @@
                     <li><a href="onsen.html">温泉</a></li>
                     <li><a href="food.html">お料理</a></li>
                     <li><a href="news.html">お知らせ</a></li>
-                    <li><a href="reserve.html">宿泊予約</a></li>
+                    <li><a href="https://ssl.mountaintrad.co.jp/--okudaya/" target="_blank" rel="noopener noreferrer">宿泊予約</a></li>
                     <li><a href="#access" onclick="closeMenu()">アクセス</a></li>
                 </ul>
             </div>
             <div class="menu-right">
                 <div class="menu-sub-links">
-                    <a href="reserve.html">宿泊予約・料金計算</a>
-                    <a href="http://www.okudaya.jp/">奥田屋公式サイト</a>
+                    <a href="https://ssl.mountaintrad.co.jp/--okudaya/" target="_blank" rel="noopener noreferrer">宿泊予約・料金計算</a>
+                    <a href="https://ssl.mountaintrad.co.jp/--okudaya/support.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
                 </div>
                 <div class="menu-footer-info">
                     <span class="label">RESERVATION</span>
-                    <a href="tel:0576-62-3006" class="tel">0576-62-3006</a>
+                    <a href="tel:0576623006" class="tel">0576-62-3006</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ヘッダー -->
     <header class="site-header">
         <div class="header-inner">
             <div class="menu-trigger" onclick="openMenu()">
@@ -60,12 +59,13 @@
                 <span class="menu-label">MENU</span>
             </div>
             <div class="header-contact">
-                <span class="header-tel">0576-62-3006</span>
-                <a href="reserve.html" class="header-btn">宿泊予約</a>
+                <a href="tel:0576623006" class="header-tel" style="color: inherit; text-decoration: none;">0576-62-3006</a>
+                <a href="https://ssl.mountaintrad.co.jp/--okudaya/" class="header-btn" target="_blank" rel="noopener noreferrer">宿泊予約</a>
             </div>
         </div>
     </header>
 
+    <!-- ヒーローセクション -->
     <section class="hero">
         <div class="hero-slider">
             <div class="slide" style="background-image: url('images/nature.jpg');"></div>
@@ -81,7 +81,9 @@
         </div>
     </section>
 
+    <!-- メインコンテンツ -->
     <main>
+        <!-- 1. 自然 -->
         <section class="alternating-section">
             <div class="section-container">
                 <div class="text-content reveal">
@@ -95,6 +97,7 @@
             </div>
         </section>
 
+        <!-- 2. 歴史 -->
         <section class="alternating-section">
             <div class="section-container reverse">
                 <div class="text-content reveal">
@@ -108,6 +111,7 @@
             </div>
         </section>
 
+        <!-- 3. 客室 -->
         <section class="alternating-section">
             <div class="section-container">
                 <div class="text-content reveal">
@@ -121,6 +125,7 @@
             </div>
         </section>
 
+        <!-- 4. 温泉 -->
         <section class="alternating-section">
             <div class="section-container reverse">
                 <div class="text-content reveal">
@@ -134,6 +139,7 @@
             </div>
         </section>
 
+        <!-- 5. お食事 -->
         <section class="alternating-section">
             <div class="section-container">
                 <div class="text-content reveal">
@@ -147,12 +153,13 @@
             </div>
         </section>
 
+        <!-- 6. ブログ・お知らせ -->
         <section class="home-news-section">
             <div class="section-container">
                 <div class="news-banner reveal">
                     <div class="news-banner-text">
                         <span class="sub-title">Daily Life</span>
-                        <h2>奥田屋の日々とおお知らせ</h2>
+                        <h2>奥田屋の日々とお知らせ</h2>
                         <div id="latest-news-ticker" style="margin-bottom: 30px;">
                             <p style="font-size: 1.1rem; color: #8b4513;">最新の記事を読み込み中...</p>
                         </div>
@@ -165,17 +172,20 @@
             </div>
         </section>
 
-        <section id="access">
+        <!-- 7. アクセス -->
+        <section id="access" class="access-section">
             <div class="section-container reveal" style="flex-direction: column; align-items: flex-start;">
                 <h2 class="section-title">アクセス</h2>
                 <div style="width: 100%; display: flex; gap: 40px; flex-wrap: wrap;">
                     <div class="text-content">
                         <p><strong>湯屋温泉 奥田屋</strong></p>
                         <p>〒509-3113 岐阜県下呂市小坂町湯屋572</p>
-                        <p style="margin: 20px 0; font-size: 1.5rem; font-weight: bold; color: #8b4513;">TEL: 0576-62-3006</p>
+                        <p style="margin: 20px 0; font-size: 1.5rem; font-weight: bold; color: #8b4513;">
+                            <a href="tel:0576623006" style="color: inherit; text-decoration: none;">TEL: 0576-62-3006</a>
+                        </p>
                     </div>
                     <div style="flex: 1.5; min-width: 300px; height: 400px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.33234208226!2d137.288219!3d35.914264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6002dd34b8c9c43d%3A0xc68e7b9260655554!2z5aWl55Sw5bGL!5e0!3m2!1sja!2sjp!4v1710000000000" 
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.33234208226!2d137.288219!3d35.914264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6002dd34b8c9c43d%3A0xc68e7b9260655554!2z5aWl55Sw5bGL!5e0!3m2!1sja!2sjp!4v1710000000000"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -183,6 +193,7 @@
         </section>
     </main>
 
+    <!-- フッター -->
     <footer>
         <div style="margin-bottom: 15px;">
             <a href="privacy.html" style="color: #fff; opacity: 0.8; font-size: 0.85rem; text-decoration: underline;">プライバシーポリシー・会員規約</a>
@@ -190,10 +201,11 @@
         <div style="margin-bottom: 40px;">
             <img src="images/okudaya.png" alt="奥田屋" style="width: 150px; filter: brightness(0) invert(1); opacity: 0.8;">
         </div>
-        <p>© 2026 OKUDAYA All Rights Reserved.</p>
-        <a href="reserve.html" class="btn-reserve">ご予約はこちら</a>
+        <p>&copy; 2026 OKUDAYA All Rights Reserved.</p>
+        <a href="https://ssl.mountaintrad.co.jp/--okudaya/" class="btn-reserve" target="_blank" rel="noopener noreferrer">ご予約はこちら</a>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         function openMenu() { document.getElementById('full-menu').classList.add('is-open'); }
         function closeMenu() { document.getElementById('full-menu').classList.remove('is-open'); }
@@ -202,7 +214,7 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1 
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries) => {
